@@ -1,0 +1,789 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>현대홈쇼핑 PLAN H | 금융플래너 채용</title>
+
+  <style>
+    :root{
+      --bg:#f6f8fc;
+      --fg:#0d1526;
+      --muted:rgba(13,21,38,.72);
+      --muted2:rgba(13,21,38,.56);
+      --line:rgba(13,21,38,.10);
+      --card:#ffffff;
+      --shadow:0 18px 40px rgba(15,23,42,.10);
+      --max:1120px;
+
+      --accent:#ff5a3d;
+      --accent2:#ff8a3d;
+      --accentSoft:rgba(255,90,61,.12);
+      --ink:#1b2437;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui,-apple-system,"Noto Sans KR",Segoe UI,Roboto,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--fg);
+    }
+    .wrap{width:min(var(--max), calc(100% - 44px)); margin:0 auto;}
+
+    /* TOPBAR */
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      background:rgba(255,255,255,.92);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+
+    /* ✅ 상단: 좌측 2칸(각 줄 1칸) + 우측 버튼 */
+    .topbarGrid{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:14px 0;
+      gap:12px;
+    }
+
+    .titleRow{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      min-width:0;
+    }
+
+    /* ✅ 컬러 포인트(좌측 바) */
+    .brandLine{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      white-space:nowrap;
+      line-height:1.15;
+      color:var(--ink);
+      font-weight:900;
+    }
+    .brandLine::before{
+      content:"";
+      width:8px;
+      height:18px;
+      border-radius:999px;
+      background:linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow:0 10px 22px rgba(255,90,61,.24);
+      flex:0 0 auto;
+    }
+
+    .brandLine1{font-size:15px}
+    .brandLine2{
+      font-size:14px;
+      font-weight:900;
+      color:rgba(13,21,38,.78);
+    }
+    .brandLine2::before{
+      /* 두 번째 줄은 바를 조금 얇게 */
+      width:8px;
+      height:14px;
+      opacity:.85;
+    }
+
+    .brandLine .planh{
+      color:var(--accent);
+      font-weight:900;
+      letter-spacing:-.2px;
+    }
+
+    .btnRow{
+      display:flex;
+      gap:10px;
+      flex:0 0 auto;
+    }
+    .btn{
+      border:1px solid rgba(13,21,38,.14);
+      background:#fff;
+      padding:10px 14px;
+      border-radius:12px;
+      font-size:13px;
+      font-weight:900;
+      cursor:pointer;
+      box-shadow:0 10px 22px rgba(15,23,42,.06);
+      text-decoration:none;
+      color:#000;
+      transition:transform .16s ease, box-shadow .16s ease;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      white-space:nowrap;
+      user-select:none;
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btn.primary{
+      background:linear-gradient(135deg, var(--accent), var(--accent2));
+      color:#fff;
+      border:none;
+      box-shadow:0 12px 26px rgba(255,90,61,.22);
+    }
+    .btn.ghost{
+      background:#fff;
+      border:1px solid rgba(13,21,38,.16);
+      color:#000;
+    }
+    .btn:disabled{
+      opacity:.45;
+      cursor:not-allowed;
+      transform:none !important;
+      box-shadow:none !important;
+    }
+
+    /* PAGE */
+    .page{padding:24px 0 56px}
+
+    /* HERO */
+    .hero{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:24px;
+      box-shadow:var(--shadow);
+      padding:26px;
+    }
+    .hero h1{
+      margin:0 0 8px;
+      font-size:34px;
+      letter-spacing:-.3px;
+      color:var(--ink);
+      font-weight:900;
+    }
+    .hero h1 .accent{color:var(--accent)}
+
+    .heroSub{
+      font-size:14px;
+      color:var(--muted);
+      line-height:1.7;
+      margin-bottom:18px;
+    }
+
+    /* GRID */
+    .summaryGrid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:14px;
+    }
+
+    /* LEFT */
+    .summaryCard{
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:18px;
+      background:#fff;
+    }
+    .badge{
+      font-size:11px;
+      padding:5px 10px;
+      border-radius:999px;
+      background:rgba(13,21,38,.06);
+      border:1px solid rgba(13,21,38,.12);
+      color:var(--ink);
+      font-weight:900;
+    }
+    .summaryCard b{
+      display:flex; align-items:center; gap:8px;
+      margin-bottom:12px;
+      font-size:14px;
+    }
+    .row{
+      display:grid;
+      grid-template-columns:100px 1fr;
+      padding:12px 0;
+      border-top:1px solid var(--line);
+    }
+    .row:first-child{border-top:none}
+    .k{font-size:12px; color:var(--muted2); font-weight:900}
+    .v{font-size:13px; line-height:1.7}
+
+    /* ✅ FACT CARDS (LEFT BOTTOM) */
+    .factSection{
+      margin-top:18px;
+      padding-top:16px;
+      border-top:1px dashed rgba(13,21,38,.14);
+    }
+    .factTitle{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      margin:0 0 12px;
+      font-size:13px;
+      font-weight:900;
+      color:var(--ink);
+      letter-spacing:-.2px;
+    }
+    .factTitle::before{
+      content:"";
+      width:10px;
+      height:10px;
+      border-radius:999px;
+      background:linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow:0 10px 18px rgba(255,90,61,.20);
+      flex:0 0 auto;
+    }
+    .factGrid{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:10px;
+    }
+    .factCard{
+      border:1px solid rgba(13,21,38,.10);
+      border-radius:14px;
+      padding:12px 12px;
+      background:linear-gradient(135deg, rgba(255,255,255,.98), rgba(255,90,61,.03));
+      box-shadow:0 10px 22px rgba(15,23,42,.04);
+      transition:transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+      min-height:86px;
+    }
+    .factCard:hover{
+      transform:translateY(-1px);
+      border-color:rgba(255,90,61,.28);
+      box-shadow:0 14px 30px rgba(255,90,61,.12);
+    }
+    .factCard strong{
+      display:block;
+      font-size:13px;
+      font-weight:900;
+      color:var(--accent);
+      margin-bottom:6px;
+      letter-spacing:-.15px;
+    }
+    .factCard p{
+      margin:0;
+      font-size:12px;
+      line-height:1.55;
+      color:rgba(27,36,55,.86);
+    }
+    .factNote{
+      margin-top:10px;
+      font-size:11px;
+      color:rgba(13,21,38,.60);
+      line-height:1.55;
+    }
+
+    /* RIGHT */
+    .notice{
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:18px;
+      background:linear-gradient(135deg, rgba(255,90,61,.08), rgba(255,138,61,.08));
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+
+    .dbBadge{
+      align-self:flex-start;
+      background:linear-gradient(135deg, var(--accent), var(--accent2));
+      color:#fff;
+      padding:8px 14px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:900;
+      box-shadow:0 10px 20px rgba(255,90,61,.25);
+    }
+
+    .highlight{
+      background:#fff;
+      border:2px solid rgba(255,90,61,.35);
+      border-radius:14px;
+      padding:14px;
+      font-size:13px;
+      font-weight:900;
+      line-height:1.7;
+    }
+
+    .block{
+      background:rgba(255,255,255,.75);
+      border:1px solid rgba(13,21,38,.08);
+      border-radius:14px;
+      padding:14px;
+    }
+    .block b{display:block; margin-bottom:8px; font-size:13px}
+    .block ul{
+      margin:0;
+      padding-left:18px;
+      display:grid;
+      gap:8px;
+      font-size:12px;
+      line-height:1.7;
+    }
+
+    .pillLink{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      margin-top:8px;
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid rgba(13,21,38,.14);
+      background:#fff;
+      font-size:12px;
+      font-weight:900;
+      text-decoration:none;
+      color:#000;
+      transition:transform .16s ease, box-shadow .16s ease;
+      user-select:none;
+    }
+    .pillLink:hover{transform:translateY(-1px)}
+
+    /* 블로그 버튼 강조 */
+    .pillLink.blogStrong{
+      position:relative;
+      border:2px solid var(--accent);
+      background:linear-gradient(135deg, #fff2ed, #ffffff);
+      color:var(--ink);
+      font-weight:900;
+      box-shadow:0 14px 32px rgba(255,90,61,.20);
+    }
+    .pillLink.blogStrong::before{
+      content:"지원 전 필수";
+      position:absolute;
+      top:-12px;
+      left:15px;
+      background:linear-gradient(135deg, var(--accent), var(--accent2));
+      color:#fff;
+      font-size:11px;
+      font-weight:900;
+      padding:1px 8px;
+      border-radius:999px;
+      box-shadow:0 10px 18px rgba(255,90,61,.25);
+    }
+    .pillLink.blogStrong::after{
+      content:"↗";
+      margin-left:2px;
+      font-weight:900;
+      opacity:.75;
+    }
+    .pillLink.blogStrong:hover{
+      transform:translateY(-2px);
+      box-shadow:0 18px 40px rgba(255,90,61,.28);
+    }
+
+    .mustRead{
+      border:1px solid rgba(255,90,61,.25);
+      background:linear-gradient(135deg, rgba(255,90,61,.08), rgba(255,255,255,.85));
+      border-radius:14px;
+      padding:12px 12px;
+      font-size:12px;
+      line-height:1.7;
+      color:rgba(27,36,55,.92);
+      margin-top:8px;
+    }
+    .mustRead b{font-size:12px}
+    .mustRead .mini{
+      margin-top:6px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      align-items:center;
+      color:rgba(27,36,55,.78);
+    }
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:6px 10px;
+      border-radius:999px;
+      background:#fff;
+      border:1px solid rgba(13,21,38,.14);
+      font-weight:900;
+      font-size:11px;
+    }
+    .chip em{font-style:normal; color:var(--accent);}
+
+    footer{
+      margin-top:28px;
+      padding-top:14px;
+      border-top:1px solid var(--line);
+      font-size:12px;
+      color:var(--muted2);
+      line-height:1.7;
+    }
+
+    /* MODAL */
+    .modalOverlay{
+      position:fixed; inset:0;
+      background:rgba(13,21,38,.52);
+      backdrop-filter: blur(4px);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:18px;
+      z-index:999;
+    }
+    .modalOverlay.show{display:flex}
+    .modal{
+      width:min(560px, 100%);
+      background:#fff;
+      border-radius:18px;
+      border:1px solid rgba(13,21,38,.12);
+      box-shadow:0 26px 70px rgba(15,23,42,.25);
+      overflow:hidden;
+    }
+    .modalHd{
+      padding:16px 16px 12px;
+      border-bottom:1px solid rgba(13,21,38,.10);
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:10px;
+    }
+    .modalHd b{font-size:14px}
+    .modalHd .x{
+      width:34px; height:34px;
+      border-radius:10px;
+      border:1px solid rgba(13,21,38,.14);
+      background:#fff;
+      cursor:pointer;
+      font-weight:900;
+    }
+    .modalBd{padding:14px 16px 16px}
+    .modalBd p{
+      margin:0 0 10px;
+      font-size:13px;
+      color:rgba(27,36,55,.86);
+      line-height:1.7;
+    }
+    .modalSteps{
+      border:1px solid rgba(13,21,38,.10);
+      border-radius:14px;
+      padding:12px;
+      background:rgba(13,21,38,.03);
+      display:grid;
+      gap:8px;
+      margin-bottom:12px;
+    }
+    .modalSteps .s{
+      display:flex; gap:10px; align-items:flex-start;
+      font-size:12px; line-height:1.6; color:rgba(27,36,55,.88);
+    }
+    .dot{
+      flex:0 0 auto;
+      width:22px; height:22px;
+      border-radius:8px;
+      background:linear-gradient(135deg, var(--accent), var(--accent2));
+      color:#fff;
+      display:flex; align-items:center; justify-content:center;
+      font-weight:900;
+      font-size:12px;
+      margin-top:1px;
+    }
+    .confirmRow{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      padding:10px 12px;
+      border:1px solid rgba(13,21,38,.10);
+      border-radius:14px;
+      background:#fff;
+      margin-bottom:12px;
+      font-size:12px;
+      color:rgba(27,36,55,.88);
+    }
+    .confirmRow input{transform:scale(1.1)}
+    .modalCtas{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:960px){
+      .summaryGrid{grid-template-columns:1fr}
+      .hero{padding:22px}
+      .hero h1{font-size:30px}
+      .heroSub{font-size:13px}
+      .topbarGrid{padding:12px 0}
+      .btn{padding:10px 12px}
+    }
+
+    @media(max-width:768px){
+      .factGrid{grid-template-columns:1fr}
+    }
+
+    /* ✅ 모바일: 타이틀은 “한 줄짜리 칸 2개(크게)” + 버튼 세로 */
+    @media(max-width:520px){
+      .topbarGrid{align-items:flex-start}
+      .brandLine1{font-size:16px}
+      .brandLine2{font-size:15px}
+      .btnRow{
+        flex-direction:column;
+        align-items:flex-end;
+        gap:8px;
+      }
+      .btn{
+        width:116px;
+        font-size:12px;
+        padding:10px 12px;
+      }
+    }
+/* ✅ FACT CARDS: vertical space tighten */
+/* 🔥 모집요약 ↔ 팩트카드 : 칸 더 띄운 버전 */
+.factSection{
+  margin-top: 16px;                 /* 🔥 위 텍스트와 점선 사이 */
+  padding-top: 26px;                /* 🔥 점선과 타이틀 사이 */
+  border-top: 1px dashed rgba(13,21,38,.20);
+}
+
+/* 🔥 타이틀 자체도 아래 카드와 분리 */
+.factTitle{
+  margin-bottom: 18px;              /* 타이틀 ↔ 카드 간격 */
+  font-size: 13px;
+  font-weight: 900;
+  color: var(--ink);
+  letter-spacing: -.2px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.factGrid{
+  gap: 8px;                       /* 기존 10px → 8px */
+}
+
+.factCard{
+  padding: 10px 12px;             /* 기존 12px 12px → 10px 12px */
+  min-height: 0;                  /* 기존 86px 제거(핵심) */
+}
+
+/* FACT CARD: 좌우 시작선 유지 + 카드 몸통만 슬림해 보이게 */
+.factCard{
+  padding: 8px 18px;            /* 좌우 여백을 늘려 “몸통”을 안쪽으로 */
+  background-clip: padding-box; /* 배경을 padding 안쪽까지만 칠함 */
+}
+
+/* ✅ 팩트 카드: 오른쪽 끝만 왼쪽으로 당기기(카드는 왼쪽 정렬 유지) */
+.factGrid{
+  justify-items: start;          /* 각 카드가 칸의 왼쪽에서 시작 */
+}
+
+.factCard{
+  width: calc(100% - 45px);      /* ← 이 값만 조절하면 됨 (오른쪽이 줄어듦) */
+}
+
+  </style>
+</head>
+
+<body>
+<script>
+  const FORM_URL  = "https://docs.google.com/forms/d/e/1FAIpQLSdI5dWspMp7sYJfHQd1ifK4Z0PrZIAfgEk-F6mz0fhs0-qSKQ/viewform?usp=header";
+  const KAKAO_URL = "https://open.kakao.com/o/sJTU2rlc";
+  const BLOG_URL  = "https://blog.naver.com/phoenix7101";
+
+  function openNew(url){ window.open(url,"_blank","noopener"); }
+
+  // 지원서 작성: 블로그 확인 모달 먼저
+  function startApply(){
+    const overlay = document.getElementById("applyGate");
+    const chk = document.getElementById("blogChecked");
+    const btn = document.getElementById("goApplyBtn");
+    const hint = document.getElementById("blogHint");
+    if(chk) chk.checked = false;
+    if(btn) btn.disabled = true;
+    if(hint) hint.textContent = "아래 순서대로 진행해 주세요.";
+    overlay.classList.add("show");
+  }
+
+  function openBlogFromGate(){
+    openNew(BLOG_URL);
+    const hint = document.getElementById("blogHint");
+    if(hint) hint.textContent = "블로그가 새 창으로 열렸습니다. 확인 후 아래 체크를 눌러 지원서를 진행하세요.";
+  }
+
+  function toggleApplyBtn(){
+    const chk = document.getElementById("blogChecked");
+    const btn = document.getElementById("goApplyBtn");
+    btn.disabled = !chk.checked;
+  }
+
+  function goApply(){
+    openNew(FORM_URL);
+    closeGate();
+  }
+
+  function closeGate(){
+    document.getElementById("applyGate").classList.remove("show");
+  }
+</script>
+
+<div class="topbar">
+  <div class="wrap topbarGrid">
+    <div class="titleRow">
+      <div class="brandLine brandLine1">
+        현대홈쇼핑 <span class="planh">PLAN H</span>
+      </div>
+      <div class="brandLine brandLine2">
+        금융플래너 채용
+      </div>
+    </div>
+
+    <div class="btnRow">
+      <a class="btn primary" onclick="startApply()">지원서작성</a>
+      <a class="btn" onclick="openNew(KAKAO_URL)">카카오문의</a>
+    </div>
+  </div>
+</div>
+
+<main class="page">
+  <div class="wrap">
+
+    <section class="hero">
+      <h1>
+        현대홈쇼핑 <span class="accent">PLAN H</span>,<br>
+        프리미엄 보험 컨설팅
+      </h1>
+
+      <div class="heroSub">
+        대기업 기반의 안정적인 영업 환경과 체계적인 시스템 안에서
+        보험 전문가로 성장할 수 있는 컨설팅 조직입니다.
+      </div>
+
+      <div class="summaryGrid">
+        <!-- LEFT -->
+        <div class="summaryCard">
+          <b><span class="badge">모집요약</span> PLAN H 보험설계사 모집</b>
+
+          <div class="row">
+            <div class="k">모집직무</div>
+            <div class="v">보험 컨설팅 (상담 · 분석 · 제안 · 관리)</div>
+          </div>
+
+          <div class="row">
+            <div class="k">우대 요건</div>
+            <div class="v">
+              보험 무경력 신입 우선 채용<br>
+              보험경력자 지원금(직전 연봉에 따름, 최대 5천)
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="k">근무 가능 지역</div>
+            <div class="v">서울 · 경기</div>
+          </div>
+
+          <div class="row">
+            <div class="k">채용 불가</div>
+            <div class="v">
+              직전 2년 이내 보험사 3회 이상 이동자<br>
+              고정 출근 불가능자
+            </div>
+          </div>
+
+          <!-- ✅ LEFT BOTTOM: FACT CARDS -->
+          <div class="factSection">
+            <div class="factTitle">현대홈쇼핑GA 강대한지점</div>
+
+            <div class="factGrid">
+              <div class="factCard">
+                <strong>현대홈쇼핑 대면채널 1호 지점</strong>
+              
+              </div>
+
+              <div class="factCard">
+                <strong>연도대상 최다인원 달성 지점</strong>
+          
+              </div>
+
+              <div class="factCard">
+                <strong>인당 생산성 업계 상위 0.1%</strong>
+              
+              </div>
+
+              <div class="factCard">
+                <strong>억대연봉 최다인원 배출 지점</strong>
+     
+              </div>
+            </div>
+
+          
+          </div>
+          <!-- ✅ /FACT CARDS -->
+
+        </div>
+
+        <!-- RIGHT -->
+        <aside class="notice">
+          <div class="dbBadge">DB 무상 지원 · 매월</div>
+
+          <div class="highlight">
+            현대홈쇼핑 보험 방송을 통해 접수된 보험상담요청 고객 DB를<br>
+            <b>매월 무상으로 지원</b>합니다.
+          </div>
+
+          <div class="block">
+            <b>DB 구성</b>
+            <ul>
+              <li><b>방송 DB</b> : 현대홈쇼핑(10번 채널) 보험 방송 유입 고객</li>
+              <li><b>퍼미션 DB</b> : 보험상담 방문약속 고객<br>(현대홈쇼핑 자체 퍼미션센터 운영)</li>
+            </ul>
+          </div>
+
+          <div class="block">
+            <b>탑클래스 조직 활동 살펴보기</b>
+
+            <div class="mustRead">
+              <b>자세한 내용은 정기적으로 블로그에 게재됩니다.</b>
+              <div class="mini">
+                <span class="chip">1) <em>블로그</em> 확인</span>
+                <span class="chip">2) 확인 후 <em>지원서작성</em> 진행</span>
+              </div>
+            </div>
+
+            <a class="pillLink blogStrong" onclick="openNew(BLOG_URL)">블로그 활동 사례 확인</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <footer>
+      현대홈쇼핑 PLAN H는 안정적인 기업 기반 위에서 전문 보험 컨설턴트의 성장을 지원합니다.
+    </footer>
+
+  </div>
+</main>
+
+<!-- 지원 게이트 모달 -->
+<div class="modalOverlay" id="applyGate" role="dialog" aria-modal="true" aria-label="지원 전 블로그 확인">
+  <div class="modal">
+    <div class="modalHd">
+      <div>
+        <b>지원 전 필수 확인</b><br>
+        <span style="font-size:12px; color:rgba(27,36,55,.72);">블로그에서 실제 운영 사례를 확인한 후 지원서를 진행합니다.</span>
+      </div>
+      <button class="x" onclick="closeGate()" aria-label="닫기">×</button>
+    </div>
+
+    <div class="modalBd">
+      <p id="blogHint">아래 순서대로 진행해 주세요.</p>
+
+      <div class="modalSteps">
+        <div class="s"><span class="dot">1</span><div>블로그를 열고 “조직 운영/활동 사례”를 확인합니다.</div></div>
+        <div class="s"><span class="dot">2</span><div>확인 후 체크박스를 선택하면 지원서 버튼이 활성화됩니다.</div></div>
+      </div>
+
+      <div class="modalCtas" style="margin-bottom:10px;">
+        <button class="btn primary" type="button" onclick="openBlogFromGate()">블로그 먼저 확인하기</button>
+        <button class="btn ghost" type="button" onclick="closeGate()">나중에 할게요</button>
+      </div>
+
+      <div class="confirmRow">
+        <input id="blogChecked" type="checkbox" onchange="toggleApplyBtn()">
+        <label for="blogChecked"><b>블로그를 확인했습니다.</b> 지원서를 진행하겠습니다.</label>
+      </div>
+
+      <div class="modalCtas">
+        <button class="btn primary" id="goApplyBtn" type="button" onclick="goApply()" disabled>지원서 작성(진행)</button>
+        <button class="btn" type="button" onclick="openNew(KAKAO_URL)">카카오 문의</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
