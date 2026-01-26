@@ -589,6 +589,27 @@
 
 
 
+/* ✅ TOPBAR 기본 */
+.topbarGrid{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px 0;
+  gap:12px;
+}
+
+.topLeft{display:flex; align-items:center;}
+.topLogo{height:24px; width:auto; display:block; object-fit:contain;}
+
+/* ✅ 버튼은 PC/모바일 모두 가로 정렬 고정 */
+.btnRow{
+  display:flex !important;
+  flex-direction:row !important;
+  align-items:center !important;
+  gap:10px !important;
+}
+
+
   </style>
 </head>
 
@@ -637,12 +658,12 @@
 <div class="topbar">
   <div class="wrap topbarGrid">
 
-    <!-- ✅ LEFT: 로고 -->
     <div class="topLeft">
-      <img class="topLogo" src="assets/logo-hyundai-planh.png" alt="현대홈쇼핑 PLAN H 로고">
+      <img class="topLogo"
+           src="planh/assets/logo-hyundai-planh.png"
+           alt="현대홈쇼핑 PLAN H 로고">
     </div>
 
-    <!-- ✅ RIGHT: 버튼 -->
     <div class="btnRow">
       <a class="btn primary" onclick="startApply()">지원서작성</a>
       <a class="btn" onclick="openNew(KAKAO_URL)">카카오문의</a>
@@ -650,6 +671,7 @@
 
   </div>
 </div>
+
 
 <main class="page">
   <div class="wrap">
