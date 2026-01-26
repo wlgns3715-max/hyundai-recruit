@@ -567,6 +567,21 @@
   width: calc(100% - 45px);      /* ← 이 값만 조절하면 됨 (오른쪽이 줄어듦) */
 }
 
+/* TOPBAR 우측(로고 + 버튼) 묶음 */
+.topbarRight{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+
+/* 로고 크기 */
+.topbarLogo img{
+  height:28px;
+  object-fit:contain;
+  display:block;
+}
+
+
   </style>
 </head>
 
@@ -623,10 +638,17 @@
       </div>
     </div>
 
-    <div class="btnRow">
-      <a class="btn primary" onclick="startApply()">지원서작성</a>
-      <a class="btn" onclick="openNew(KAKAO_URL)">카카오문의</a>
-    </div>
+    <div class="topbarRight">
+  <div class="topbarLogo">
+    <img src="assets/logo-hyundai-planh.png" alt="현대홈쇼핑 PLAN H 로고">
+  </div>
+
+  <div class="btnRow">
+    <a class="btn primary" onclick="startApply()">지원서작성</a>
+    <a class="btn" onclick="openNew(KAKAO_URL)">카카오문의</a>
+  </div>
+
+
   </div>
 </div>
 
@@ -669,7 +691,7 @@
           <div class="row">
             <div class="k">채용 불가</div>
             <div class="v">
-              직전 2년 이내 보험사 3회 이상 이동자<br>
+              직전 3년 이내 보험사 3회 이상 이동자<br>
               고정 출근 불가능자
             </div>
           </div>
@@ -683,19 +705,19 @@
 <div class="row">
   <div class="k">개인</div>
   <div class="v">
-    전년도 소득 구간별 차등 지원 → 최대 5천만원</b>
+    전년도 또는 직전 1년 / 소득 구간별 차등 지원 → 최대 5천만원</b>
   </div>
 </div>
 
 <div class="row">
   <div class="k">
     조직 단위<br>
-    <span style="font-size:11px;">3명+</span>
+    <span style="font-size:11px;">2명+</span>
   </div>
   <div class="v">
     전년도 조직 합산소득 구간별 차등 지원 → 최대 2억 5천만원</b>
     <div style="margin-top:10px;">
-      <b>서울/경기권 사무실 임차 지원 가능 -> 팀 단위 문의</b>
+      <b>서울/경기권 사무실 임차 지원 가능 → 팀 단위 문의</b>
     </div>
   </div>
 </div>
