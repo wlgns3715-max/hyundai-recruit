@@ -584,20 +584,19 @@
 /* ✅ 모바일에서도 동일하게 가되, 버튼만 줄바꿈 방지 */
 @media(max-width:520px){
 
-  /* 버튼 세로 길이 줄이기 */
   .btn{
-    padding:8px 12px;     /* ← 기존 10~12px → 8px */
+    width:92px;          /* 🔥 핵심: 가로 줄이기 */
+    padding:8px 10px;
     font-size:12px;
     border-radius:10px;
-    height:auto;          /* 고정 높이 제거 */
   }
 
-  /* 버튼 묶음 정리 */
   .btnRow{
-    gap:6px;              /* 버튼 사이 간격 축소 */
+    gap:6px;
   }
 
 }
+
 
 
 
