@@ -507,16 +507,43 @@
       .factGrid{grid-template-columns:1fr}
     }
 
-    /* ✅ 모바일: 타이틀은 “한 줄짜리 칸 2개(크게)” + 버튼 세로 */
-    @media(max-width:520px){
-      .topbarGrid{align-items:flex-start}
-      .brandLine1{font-size:16px}
-      .brandLine2{font-size:15px}
-      .btnRow{
-        flex-direction:column;
-        align-items:flex-end;
-        gap:8px;
-      }
+   @media(max-width:520px){
+  /* ✅ 상단바를 2줄로 강제(겹침 방지) */
+  .topbarGrid{
+    flex-wrap: wrap;           /* 줄바꿈 허용 */
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  /* ✅ 타이틀은 첫 줄(100% 폭) */
+  .titleRow{
+    width: 100%;
+  }
+
+  /* ✅ 로고+버튼은 둘째 줄(100% 폭) */
+  .topbarRight{
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between; /* 왼쪽 로고 / 오른쪽 버튼 */
+    gap: 12px;
+  }
+
+  /* ✅ 모바일에서 로고 크기 제한(가로폭 과다 방지) */
+  .topbarLogo img{
+    height: 20px;
+    max-width: 170px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* ✅ 버튼은 세로 유지(기존 의도 유지) */
+  .btnRow{
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+  }
       .btn{
         width:116px;
         font-size:12px;
@@ -640,8 +667,7 @@
 
     <div class="topbarRight">
   <div class="topbarLogo">
-    <img src="planh/assets/logo-hyundai-planh.png" alt="현대홈쇼핑 PLAN H 로고">
-
+    <img src="assets/logo-hyundai-planh.png" alt="현대홈쇼핑 PLAN H 로고">
   </div>
 
   <div class="btnRow">
@@ -838,4 +864,3 @@
 
 </body>
 </html>
-
