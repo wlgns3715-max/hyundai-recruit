@@ -524,10 +524,12 @@
 /* ✅ FACT CARDS: vertical space tighten */
 /* 🔥 모집요약 ↔ 팩트카드 : 칸 더 띄운 버전 */
 .factSection{
-  margin-top: 4px;                 /* 🔥 위 텍스트와 점선 사이 */
-  padding-top: 30px;                /* 🔥 점선과 타이틀 사이 */
-  border-top: 1px dashed rgba(255,90,61,.65);
+  margin-top: 4px;
+  padding-top: 30px;
+  border-top: 0;
 }
+
+
 
 /* 🔥 타이틀 자체도 아래 카드와 분리 */
 .factTitle{
@@ -621,6 +623,7 @@
   gap:10px !important;
 }
 
+.factSection{ border-top:none !important; }
 
   </style>
 </head>
@@ -737,9 +740,11 @@
 
 <div class="row">
   <div class="k">개인</div>
-  <div class="v">
-    전년도 또는 직전 1년 / 소득 구간별 차등 지원 → 최대 5천만원</b>
-  </div>
+<div class="v">
+  전년도 또는 직전 1년 / 소득 구간별 차등 지원<br>
+  → 최대 5천만원
+</div>
+
 </div>
 
 <div class="row">
@@ -747,15 +752,22 @@
     조직 단위<br>
     <span style="font-size:11px;">2명+</span>
   </div>
+<div class="v">
+  전년도 조직 합산소득 구간별 차등 지원<br>
+  → 최대 2억 5천만원
+</div>
+</div>
+
+
+<div class="row">
+  <div class="k">임차 지원</div>
   <div class="v">
-    전년도 조직 합산소득 구간별 차등 지원 → 최대 2억 5천만원</b>
-    <div style="margin-top:10px;">
-      <b>서울/경기권 사무실 임차 지원 가능 → 팀 단위 문의</b>
-    </div>
+    서울/경기권 사무실 임차 지원 가능
   </div>
 </div>
 
 
+<div style="border-top:1px dashed rgba(255,90,61,.65); margin:13px 0; padding-top:0px;"></div>
 
 
           <!-- ✅ LEFT BOTTOM: FACT CARDS -->
