@@ -419,7 +419,7 @@
     }
     .modalOverlay.show{display:flex}
     .modal{
-      width:min(560px, 100%);
+      width:min(300px, 100%);
       background:#fff;
       border-radius:18px;
       border:1px solid rgba(13,21,38,.12);
@@ -624,6 +624,61 @@
 }
 
 .factSection{ border-top:none !important; }
+
+/* ====== 모달(지원 게이트) 버튼 3개를 세로로 강제 + 겹침 방지 ====== */
+
+/* 설명 글 */
+.gateHint{
+  margin:0 0 12px;
+  font-size:13px;
+  line-height:1.6;
+  color:rgba(27,36,55,.86);
+  font-weight:800;
+}
+
+/* 버튼 3개를 세로로 한 줄씩 */
+.gateCtas{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap:10px;
+}
+
+/* 버튼 기본 모양 + 글자 겹침 방지 */
+.gateBtn{
+    width:100%;
+  margin:0 auto;
+  display:block;
+  text-align:left;
+  padding:10px 12px;     /* 🔽 세로 줄임 */
+  border-radius:12px;    /* 🔽 모서리 살짝 줄임 */
+  border:1px solid rgba(13,21,38,.12);
+  background:#fff;
+  font-size:13px;        /* 🔽 글자 살짝 줄임 */
+  font-weight:900;
+  cursor:pointer;
+  white-space:normal;
+  line-height:1.25;
+}
+
+
+/* 3개 버튼 색상 */
+.gateBlog{
+  border:none;
+  color:#fff;
+  background:linear-gradient(135deg, var(--accent), var(--accent2));
+}
+.gateApply{
+  border:2px solid rgba(255,90,61,.35);
+  color:var(--ink);
+  background:#fff;
+}
+.gateKakao{
+  background:#FEE500;
+  border:1px solid rgba(0,0,0,.14);
+  color:#000;
+}
+
+
 
   </style>
 </head>
@@ -848,34 +903,34 @@
   <div class="modal">
     <div class="modalHd">
       <div>
-        <b>지원 전 필수 확인</b><br>
-        <span style="font-size:12px; color:rgba(27,36,55,.72);">블로그에서 실제 운영 사례를 확인한 후 지원서를 진행합니다.</span>
+        <b>억대 연봉 조직의</b><br>
+        <span style="font-size:12px; color:rgba(27,36,55,.72);">팩트 체크는 블로그에서 확인하세요.</span>
       </div>
       <button class="x" onclick="closeGate()" aria-label="닫기">×</button>
     </div>
 
-    <div class="modalBd">
-      <p id="blogHint">아래 순서대로 진행해 주세요.</p>
+   
 
-      <div class="modalSteps">
-        <div class="s"><span class="dot">1</span><div>블로그를 열고 “조직 운영/활동 사례”를 확인합니다.</div></div>
-        <div class="s"><span class="dot">2</span><div>확인 후 체크박스를 선택하면 지원서 버튼이 활성화됩니다.</div></div>
-      </div>
 
-      <div class="modalCtas" style="margin-bottom:10px;">
-        <button class="btn primary" type="button" onclick="openBlogFromGate()">블로그 먼저 확인하기</button>
-        <button class="btn ghost" type="button" onclick="closeGate()">나중에 할게요</button>
-      </div>
 
-      <div class="confirmRow">
-        <input id="blogChecked" type="checkbox" onchange="toggleApplyBtn()">
-        <label for="blogChecked"><b>블로그를 확인했습니다.</b> 지원서를 진행하겠습니다.</label>
-      </div>
+<div class="modalBd">
+  <p class="gateHint">원하는 항목을 선택해 진행해 주세요. </p>
 
-      <div class="modalCtas">
-        <button class="btn primary" id="goApplyBtn" type="button" onclick="goApply()" disabled>지원서 작성(진행)</button>
-        <button class="btn" type="button" onclick="openNew(KAKAO_URL)">카카오 문의</button>
-      </div>
+  <div class="gateCtas">
+    <button class="gateBtn gateBlog" type="button" onclick="openNew(BLOG_URL)">블로그 확인하기</button>
+    <button class="gateBtn gateApply" type="button" onclick="openNew(FORM_URL)">지원서 작성</button>
+    <button class="gateBtn gateKakao" type="button" onclick="openNew(KAKAO_URL)">카카오 문의</button>
+  </div>
+</div>
+
+
+
+
+
+  
+
+  
+
     </div>
   </div>
 </div>
