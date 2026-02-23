@@ -663,12 +663,12 @@
 
 /* 3개 버튼 색상 */
 .gateBlog{
-   color:#fff;
-  background:linear-gradient(135deg, var(--accent), var(--accent2));
-  border:2px solid #2ecc71;   /* ← 녹색 테두리 */
+  background:#ffffff;            /* 주황 제거 */
+  color:var(--ink);                 /* 글씨도 녹색 */
+  border:2px solid #2ecc71;      /* 녹색 테두리 */
 }
 .gateApply{
-  border:2px solid rgba(255,90,61,.35);
+  border:2px solid var(--accent);
   color:var(--ink);
   background:#fff;
 }
@@ -889,8 +889,8 @@
   <p class="gateHint">원하는 항목을 선택해 진행해 주세요. </p>
 
   <div class="gateCtas">
-    <button class="gateBtn gateApply" type="button" onclick="openNew(FORM_URL)">지원서 작성</button>
-<button class="gateBtn gateBlog" type="button" onclick="openNew(BLOG_URL)">블로그 확인하기</button>
+    <button class="gateBtn gateApply" type="button" onclick="openNew(FORM_URL)">개별 직무설명회(면접) 신청</button>
+<button class="gateBtn gateBlog" type="button" onclick="openNew(BLOG_URL)">블로그 확인하기 - 활동 사례</button>
     
   </div>
 </div>
