@@ -51,51 +51,50 @@
 
     .cta-big { display: block; background: var(--gold); color: var(--dark); text-align: center; padding: 25px; font-weight: 900; font-size: 20px; border-radius: 15px; text-decoration: none; margin: 40px 0; }
 
-    /* ===== 모바일 대응 (최대 확대) ===== */
+    /* ===== 모바일 대응 (적당한 크기) ===== */
     @media (max-width: 768px) {
       .wrap { padding: 16px; }
 
       .nav {
         gap: 8px;
-        margin-bottom: 32px;
+        margin-bottom: 28px;
       }
       .nav-btn {
-        font-size: 18px;
-        padding: 20px 6px;
+        font-size: 13px;
+        padding: 13px 6px;
       }
 
-      .hero-box { padding: 36px 20px; border-radius: 20px; margin-bottom: 24px; }
-      .hero-logo { max-width: 340px; margin-bottom: 26px; }
-      .hero-box p { font-size: 21px !important; line-height: 1.7; }
+      .hero-box { padding: 32px 18px; border-radius: 18px; margin-bottom: 22px; }
+      .hero-logo { max-width: 300px; margin-bottom: 24px; }
+      .hero-box p { font-size: 19px !important; line-height: 1.7; }
       .stat-val {
-        font-size: 30px !important;
+        font-size: 27px !important;
         line-height: 1.5;
       }
 
-      .grid-layout { grid-template-columns: 1fr; gap: 20px; }
-      .section-card { padding: 26px; border-radius: 16px; margin-bottom: 20px; }
-      h2 { font-size: 25px; padding-bottom: 14px; margin-bottom: 8px; }
+      .grid-layout { grid-template-columns: 1fr; gap: 18px; }
+      .section-card { padding: 24px 20px; border-radius: 15px; margin-bottom: 18px; }
+      h2 { font-size: 22px; padding-bottom: 12px; margin-bottom: 8px; }
 
-      .row { font-size: 20px; padding: 14px 0; flex-wrap: wrap; }
-      .label { width: 110px; font-size: 19px; }
-      .value { font-size: 20px; }
+      .row { font-size: 18px; padding: 12px 0; flex-wrap: wrap; }
+      .label { width: 100px; font-size: 17px; }
+      .value { font-size: 18px; }
 
-      .detail-item { font-size: 20px; line-height: 1.8; margin-bottom: 22px; }
-      .detail-item b { font-size: 22px; }
+      .detail-item { font-size: 18px; line-height: 1.75; margin-bottom: 20px; }
+      .detail-item b { font-size: 19px; }
 
-      .cta-big { padding: 28px; font-size: 25px; margin: 36px 0; }
+      .cta-big { padding: 24px; font-size: 22px; margin: 32px 0; }
 
       /* 인라인 스타일로 지정된 폰트도 확대 */
-      .hero-box p[style*="font-size:15px"] { font-size: 22px !important; }
-      div[style*="font-size:15px"] { font-size: 21px !important; }
-      p[style*="font-size:13px"] { font-size: 20px !important; line-height: 1.9 !important; }
-      p[style*="font-size:11px"] { font-size: 17px !important; }
-      p[style*="font-size:17px"] { font-size: 27px !important; }
+      .hero-box p[style*="font-size:15px"] { font-size: 20px !important; }
+      div[style*="font-size:15px"] { font-size: 19px !important; }
+      p[style*="font-size:13px"] { font-size: 18px !important; line-height: 1.85 !important; }
+      p[style*="font-size:11px"] { font-size: 15px !important; }
+      p[style*="font-size:17px"] { font-size: 24px !important; }
     }
 
     @media (max-width: 400px) {
-      .nav { flex-direction: column; }
-      .nav-btn { white-space: normal; }
+      .nav-btn { font-size: 11px; padding: 10px 4px; }
     }
   </style>
 </head>
