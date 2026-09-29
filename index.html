@@ -164,17 +164,22 @@
       margin:40px 0;
     }
 
-    /* 광고 이미지 */
+    /* 채용 광고 이미지 */
+    .recruit-image-section {
+      margin:40px 0;
+      text-align:center;
+    }
+
     .recruit-image {
+      display:block;
       width:100%;
       max-width:610px;
       height:auto;
-      display:block;
       margin:0 auto;
       border-radius:16px;
     }
 
-    /* ===== 모바일 대응 ===== */
+    /* 모바일 */
     @media (max-width:768px) {
 
       .wrap {
@@ -260,7 +265,6 @@
         margin:32px 0;
       }
 
-      /* 인라인 스타일로 지정된 폰트도 확대 */
       .hero-box p[style*="font-size:15px"] {
         font-size:20px !important;
       }
@@ -281,6 +285,13 @@
       p[style*="font-size:17px"] {
         font-size:24px !important;
       }
+
+      /* 모바일에서는 화면에 맞춰 자동 축소 */
+      .recruit-image {
+        width:100%;
+        max-width:610px;
+        border-radius:12px;
+      }
     }
 
     @media (max-width:400px) {
@@ -298,13 +309,21 @@
 
   <!-- 상단 버튼 -->
   <div class="nav">
-    <a href="https://blog.naver.com/phoenix7101"
-       class="nav-btn blog">
+    <a
+      href="https://blog.naver.com/phoenix7101"
+      class="nav-btn blog"
+      target="_blank"
+      rel="noopener"
+    >
       강대한 사업단이 궁금하다면? - 블로그
     </a>
 
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdI5dWspMp7sYJfHQd1ifK4Z0PrZIAfgEk-F6mz0fhs0-qSKQ/viewform?usp=header"
-       class="nav-btn primary">
+    <a
+      href="https://docs.google.com/forms/d/e/1FAIpQLSdI5dWspMp7sYJfHQd1ifK4Z0PrZIAfgEk-F6mz0fhs0-qSKQ/viewform?usp=header"
+      class="nav-btn primary"
+      target="_blank"
+      rel="noopener"
+    >
       지원서 작성하기 !!
     </a>
   </div>
@@ -313,9 +332,11 @@
   <!-- 히어로 -->
   <div class="hero-box">
 
-    <img src="planh/assets/logo-hyundai-planh.png"
-         alt="현대홈쇼핑 PLAN H 로고"
-         class="hero-logo">
+    <img
+      src="planh/assets/logo-hyundai-planh.png"
+      alt="현대홈쇼핑 PLAN H 로고"
+      class="hero-logo"
+    >
 
     <p style="color:#aaa;border-bottom:1px solid #333;padding-bottom:25px;margin-bottom:25px;">
       지인 영업의 한계를 넘어, 대기업의 압도적 DB와 시스템으로 완성하는 안정적 커리어
@@ -328,7 +349,9 @@
 
     <p style="font-size:15px;color:#fff;">
       뛰어난 실력을 갖췄다 하더라도,
-      <span style="color:#ff5a3d;">상담이 없으면 당신의 급여는 매달 0원</span>
+      <span style="color:#ff5a3d;">
+        상담이 없으면 당신의 급여는 매달 0원
+      </span>
       입니다.
     </p>
 
@@ -344,7 +367,9 @@
 
       <div class="row">
         <div class="label">직무</div>
-        <div class="value">보험 컨설팅 (상담·분석·제안·관리)</div>
+        <div class="value">
+          보험 컨설팅 (상담·분석·제안·관리)
+        </div>
       </div>
 
       <div class="row">
@@ -356,12 +381,16 @@
 
       <div class="row">
         <div class="label">근무 지역</div>
-        <div class="value">서울 · 경기</div>
+        <div class="value">
+          서울 · 경기
+        </div>
       </div>
 
       <div class="row" style="border:none;">
         <div class="label">기타</div>
-        <div class="value">성별 나이 경력 무관</div>
+        <div class="value">
+          성별 나이 경력 무관
+        </div>
       </div>
 
     </div>
@@ -415,12 +444,14 @@
 
     <div class="detail-item">
       <b>02. 365일 무상 인바운드 DB</b>
-      자발적 상담 신청 고객 DB를 1:1로 무상 배정합니다. 사비로 DB를 살 필요가 없습니다.
+      자발적 상담 신청 고객 DB를 1:1로 무상 배정합니다.
+      사비로 DB를 살 필요가 없습니다.
     </div>
 
     <div class="detail-item">
       <b>03. 신입 3개월 마스터플랜</b>
-      기초 이론부터 동행, 1:1 녹취 피드백까지! 신입도 3개월이면 전문가가 됩니다.
+      기초 이론부터 동행, 1:1 녹취 피드백까지!
+      신입도 3개월이면 전문가가 됩니다.
     </div>
 
     <div class="detail-item">
@@ -434,8 +465,10 @@
   <!-- 대상 -->
   <div class="grid-layout">
 
-    <div class="section-card"
-         style="border:1px solid var(--gold);">
+    <div
+      class="section-card"
+      style="border:1px solid var(--gold);"
+    >
 
       <h2>신입 · 재취업 도전자</h2>
 
@@ -466,8 +499,10 @@
 
 
   <!-- 마지막 안내 -->
-  <div class="section-card"
-       style="text-align:center; border:1px solid var(--gold);">
+  <div
+    class="section-card"
+    style="text-align:center; border:1px solid var(--gold);"
+  >
 
     <h2 style="border:none; margin-bottom:10px;">
       가장 완벽한 타이밍
@@ -475,7 +510,8 @@
 
     <p style="font-size:13px;">
       지인 영업에 부담을 느끼는 시대는 지났습니다.<br>
-      준비된 최고의 환경에서 제 2의 인생, 전문가 커리어를 시작하세요.
+      준비된 최고의 환경에서 제 2의 인생,
+      전문가 커리어를 시작하세요.
     </p>
 
     <p style="font-size:17px;">
@@ -500,25 +536,42 @@
   </div>
 
 
-  <!-- 광고 이미지 : 최대 가로 610px -->
-  <section style="margin-top:40px;">
-    <img src="planh/assets/rec.jpg"
-         alt="현대홈쇼핑 PLAN H 채용 안내"
-         class="recruit-image">
+  <!-- =========================
+       여성 컨설턴트 채용 이미지
+       ========================= -->
+
+  <section class="recruit-image-section">
+
+    <img
+      src="planh/assets/recruit-woman.jpg"
+      alt="현대홈쇼핑GA 여성 보험 컨설턴트 모집"
+      class="recruit-image"
+    >
+
   </section>
 
 
   <!-- 하단 버튼 -->
-  <div class="nav"
-       style="margin-top:40px; margin-bottom:0;">
+  <div
+    class="nav"
+    style="margin-top:40px; margin-bottom:0;"
+  >
 
-    <a href="https://blog.naver.com/phoenix7101"
-       class="nav-btn blog">
+    <a
+      href="https://blog.naver.com/phoenix7101"
+      class="nav-btn blog"
+      target="_blank"
+      rel="noopener"
+    >
       강대한 사업단이 궁금하다면? - 블로그
     </a>
 
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdI5dWspMp7sYJfHQd1ifK4Z0PrZIAfgEk-F6mz0fhs0-qSKQ/viewform?usp=header"
-       class="nav-btn primary">
+    <a
+      href="https://docs.google.com/forms/d/e/1FAIpQLSdI5dWspMp7sYJfHQd1ifK4Z0PrZIAfgEk-F6mz0fhs0-qSKQ/viewform?usp=header"
+      class="nav-btn primary"
+      target="_blank"
+      rel="noopener"
+    >
       지원서 작성하기 !!
     </a>
 
